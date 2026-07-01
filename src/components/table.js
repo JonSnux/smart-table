@@ -21,7 +21,6 @@ export function initTable(settings, onAction) {
     root[subName] = cloneTemplate(subName);
     root.container.append(root[subName].container);
     });
-    // @todo: #1.3 —  обработать события и вызвать onAction()
     root.container.addEventListener("change", () => {
         onAction();
     });
@@ -37,9 +36,7 @@ export function initTable(settings, onAction) {
         onAction(e.submitter);
     });
 
-    const render = (data) => {
-        // @todo: #1.1 — преобразовать данные в массив строк на основе шаблона rowTemplate
-        
+    const render = (data) => { 
         const nextRows = data.map((item) => {
             const row = cloneTemplate(rowTemplate);
             Object.keys(item).forEach((key) => {
